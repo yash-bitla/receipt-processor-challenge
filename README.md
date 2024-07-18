@@ -77,62 +77,6 @@ To test the APIs using Postman, follow the steps below:
 5. **Send the Request**: Click the "Send" button to send the request.
 6. **View the Response**: Check the response section at the bottom to see the points awarded for the receipt.
 
-### Example Steps
-
-1. **Process a Receipt**:
-
-   - **Request**:
-     - Method: `POST`
-     - URL: `http://localhost:5000/receipts/process`
-     - Body (JSON):
-       ```json
-       {
-         "retailer": "Target",
-         "purchaseDate": "2022-01-01",
-         "purchaseTime": "13:01",
-         "items": [
-           {
-             "shortDescription": "Mountain Dew 12PK",
-             "price": "6.49"
-           },
-           {
-             "shortDescription": "Emils Cheese Pizza",
-             "price": "12.25"
-           },
-           {
-             "shortDescription": "Knorr Creamy Chicken",
-             "price": "1.26"
-           },
-           {
-             "shortDescription": "Doritos Nacho Cheese",
-             "price": "3.35"
-           },
-           {
-             "shortDescription": "   Klarbrunn 12-PK 12 FL OZ  ",
-             "price": "12.00"
-           }
-         ],
-         "total": "35.35"
-       }
-       ```
-   - **Response**:
-     ```json
-     {
-       "id": "7fb1377b-b223-49d9-a31a-5a02701dd310"
-     }
-     ```
-
-2. **Get Points for a Receipt**:
-   - **Request**:
-     - Method: `GET`
-     - URL: `http://localhost:5000/receipts/7fb1377b-b223-49d9-a31a-5a02701dd310/points`
-   - **Response**:
-     ```json
-     {
-       "points": 32
-     }
-     ```
-
 By following these steps, you can easily test the endpoints of the Receipt Processor API using Postman.
 
 ## Trade-offs and Design Decision
