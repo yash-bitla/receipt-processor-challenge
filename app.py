@@ -19,8 +19,13 @@ def get_points(id):
     receipt = receipts.get(id)
     if receipt is None:
         return jsonify({"error": "Receipt not found"}), 404
-    
-    points = calculate_points(receipt)
+
+    if isinstance(receipt, dict):  # Check if receipt is still the payload
+        points = calculate_points(receipt)
+        receipts[id] = points  # Update the dictionary with calculated points
+    else:
+        points = receipt  # Points are already calculated
+
     return jsonify({"points": points})
 
 def calculate_points(receipt):
